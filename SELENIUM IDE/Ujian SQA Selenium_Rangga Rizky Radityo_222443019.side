@@ -1,0 +1,314 @@
+{
+  "id": "ujian-sqa-final-lengkap",
+  "version": "2.0",
+  "name": "Ujian SQA Lengkap Rangga",
+  "url": "http://localhost",
+  "tests": [{
+    "id": "tc-01-login",
+    "name": "Test Case 01: Login Valid",
+    "commands": [{
+      "id": "1cd412e2-caa7-423e-8f8f-d0f99b0cca40",
+      "comment": "",
+      "command": "open",
+      "target": "/penjualan/login.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b12fba20-aa49-49df-9f0b-0308b7c5d46f",
+      "comment": "",
+      "command": "executeScript",
+      "target": "document.getElementById('username').value='admin'",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "419cdc0c-54e1-4004-a87a-c7a2ac112633",
+      "comment": "",
+      "command": "executeScript",
+      "target": "document.getElementById('password').value='admin123'",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2ef768a5-d651-446e-8df0-4fcc1e32df12",
+      "comment": "",
+      "command": "click",
+      "target": "css=button[type='submit']",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "870af8a3-099d-4b40-bbf1-c9625516f36f",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "css=h1",
+      "targets": [],
+      "value": "10000"
+    }, {
+      "id": "c3218d48-bd7e-42cd-a585-65f0ec99b3cc",
+      "comment": "",
+      "command": "executeScript",
+      "target": "return window.location.href",
+      "targets": [],
+      "value": "url"
+    }, {
+      "id": "ed895b17-4ed8-46b0-8e2e-9ef62b85e554",
+      "comment": "",
+      "command": "assert",
+      "target": "url",
+      "targets": [],
+      "value": "http://localhost/penjualan/index.php"
+    }, {
+      "id": "006c7c16-f259-4790-84d7-f89232644666",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=h1",
+      "targets": [],
+      "value": "Dashboard Sistem Penjualan"
+    }]
+  }, {
+    "id": "tc-02-akses",
+    "name": "Test Case 02: Akses Halaman Transaksi Baru",
+    "commands": [{
+      "id": "13197b86-c1e5-442a-92ce-bfb3e87b1ec6",
+      "comment": "",
+      "command": "open",
+      "target": "/penjualan/index.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "45d1efd2-324a-4c33-9761-c1f38a9e7600",
+      "comment": "",
+      "command": "click",
+      "target": "css=.bg-danger .btn-light",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f72964e8-1c7f-439e-89a6-03e1de25e4cf",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "linkText=Buat Transaksi Baru",
+      "targets": [],
+      "value": "10000"
+    }, {
+      "id": "173ac48e-cb42-49c4-a3cc-15c79dc5553e",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Buat Transaksi Baru",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "240c3458-8750-4b11-9e16-fbdf53ec3b64",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "id=pelanggan_id",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "19fcf0e6-c577-48ae-8473-c3bd3de369b0",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "id=produk_id",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "tc-03-tambah-item",
+    "name": "Test Case 03: Penambahan Item ke Keranjang",
+    "commands": [{
+      "id": "832330d7-fbe4-4408-b996-1617e3ed7548",
+      "comment": "",
+      "command": "open",
+      "target": "/penjualan/transaksi_create.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7c954557-3c15-4963-b8af-1155fe1e66e1",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "id=produk_id",
+      "targets": [],
+      "value": "10000"
+    }, {
+      "id": "67800407-adb2-4898-939d-41442ef553c3",
+      "comment": "",
+      "command": "select",
+      "target": "id=pelanggan_id",
+      "targets": [],
+      "value": "label=regexp:Budi Santoso.*"
+    }, {
+      "id": "62c5713b-b33f-49bf-9d0d-c1337663d79f",
+      "comment": "",
+      "command": "select",
+      "target": "id=produk_id",
+      "targets": [],
+      "value": "label=regexp:Pensil 2B.*"
+    }, {
+      "id": "79c0c4d0-6e87-48dc-ae36-4a4559ed75dc",
+      "comment": "",
+      "command": "executeScript",
+      "target": "document.getElementById('qty').value='2'",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "633ad4d2-d248-4896-9ee3-8c90a87ac1f8",
+      "comment": "",
+      "command": "click",
+      "target": "id=btnTambah",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7b61ed41-c402-4478-bacc-3a0e35183c3c",
+      "comment": "",
+      "command": "waitForElementVisible",
+      "target": "css=#keranjang tbody tr",
+      "targets": [],
+      "value": "5000"
+    }, {
+      "id": "254e8704-9fb6-453d-9323-4de3519ee586",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=#keranjang tbody tr:first-child td:nth-child(1)",
+      "targets": [],
+      "value": "Pensil 2B"
+    }]
+  }, {
+    "id": "tc-04-happy-path",
+    "name": "Test Case 04: Proses Transaksi Sukses (Happy Path)",
+    "commands": [{
+      "id": "4d57e380-b1de-469b-ab8e-db52710a663f",
+      "comment": "",
+      "command": "open",
+      "target": "/penjualan/transaksi_create.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e962881f-7dfe-43cc-bcaa-93c68488a485",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "id=produk_id",
+      "targets": [],
+      "value": "10000"
+    }, {
+      "id": "8844f437-30d6-4295-9c00-0ba97cc6f1ec",
+      "comment": "",
+      "command": "select",
+      "target": "id=pelanggan_id",
+      "targets": [],
+      "value": "label=regexp:Budi Santoso.*"
+    }, {
+      "id": "48e19891-9a3e-46df-a751-246e19a0b46e",
+      "comment": "",
+      "command": "select",
+      "target": "id=produk_id",
+      "targets": [],
+      "value": "label=regexp:Pensil 2B.*"
+    }, {
+      "id": "adfa55db-e9e9-4cc5-be85-2a94569cb5b3",
+      "comment": "",
+      "command": "executeScript",
+      "target": "document.getElementById('qty').value='1'",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "092dddad-533b-419e-9b73-ceb8c8f66c04",
+      "comment": "",
+      "command": "click",
+      "target": "id=btnTambah",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "897e1296-c68d-4008-950a-a48a3ee0af3b",
+      "comment": "",
+      "command": "select",
+      "target": "id=metode_pembayaran",
+      "targets": [],
+      "value": "label=Transfer"
+    }, {
+      "id": "ef56272e-abd0-4855-beb5-d63b6d8e35f1",
+      "comment": "",
+      "command": "click",
+      "target": "id=btnSimpan",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "tc-05-negatif",
+    "name": "Test Case 05: Validasi Stok Tidak Cukup (Negatif)",
+    "commands": [{
+      "id": "7684f894-9adf-4ca6-9bf1-9feaa69c2467",
+      "comment": "",
+      "command": "open",
+      "target": "/penjualan/transaksi_create.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a92bb210-f075-4b12-9900-9a9903003694",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "id=produk_id",
+      "targets": [],
+      "value": "10000"
+    }, {
+      "id": "e7bce6de-1fcd-4478-9a4a-fc7cdc40d2b2",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "id=produk_id",
+      "targets": [],
+      "value": "label=regexp:Mouse.*"
+    }, {
+      "id": "af3fb515-99b4-4266-9e9b-1390cedadc68",
+      "comment": "",
+      "command": "executeScript",
+      "target": "document.getElementById('qty').value='100'",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1f8e9b5e-3ae2-4287-98fd-3af4f15be801",
+      "comment": "",
+      "command": "click",
+      "target": "id=btnTambah",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "tc-06-logout",
+    "name": "Test Case 06: Logout",
+    "commands": [{
+      "id": "d5b67e4d-dab4-4a1f-905f-a771fc0bea6c",
+      "comment": "",
+      "command": "open",
+      "target": "/penjualan/index.php",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c0db46cd-4ea6-4bc5-8286-83d7bb448641",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Logout",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "78c7d0f1-adca-4c8d-84ba-ee2774494849",
+      "comment": "",
+      "command": "waitForElementPresent",
+      "target": "id=username",
+      "targets": [],
+      "value": "10000"
+    }, {
+      "id": "b8e2a0a4-857a-4b81-8c4b-985e99999e52",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "id=username",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "suite-full",
+    "name": "Full Test Suite Penjualan",
+    "persistSession": true,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["tc-01-login", "tc-02-akses", "tc-03-tambah-item", "tc-04-happy-path", "tc-05-negatif", "tc-06-logout"]
+  }],
+  "urls": ["http://localhost/penjualan", "http://localhost/"],
+  "plugins": []
+}
